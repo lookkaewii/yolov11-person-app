@@ -23,10 +23,10 @@ if uploaded_image is not None:
     st.image(result_image , caption="YOLO Detection Result", use_container_width=True)
     st.success("Detection completed!")
 
-# Extract detection results
-boxes = results[0].boxes
-class_ids = boxes.cls.cpu().numpy().astype(int)
-class_names = [model.names[i] for i in class_ids]
-# Count people
-person_count = class_names.count("person")
-st.write(f"Number of people detected: **{person_count}**")
+    # Extract detection results
+    boxes = results[0].boxes
+    class_ids = boxes.cls.cpu().numpy().astype(int)
+    class_names = [model.names[i] for i in class_ids]
+    # Count people
+    person_count = class_names.count("person")
+    st.write(f"Number of people detected: **{person_count}**")
